@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { FilterInput, FilterTitle, FilterBox } from './Filter'
 
 
@@ -11,6 +11,6 @@ export const Filter = ({ onChange }) => {
     );
 }
 
-Filter.propTypes = {
-    onChange: PropTypes.func.isRequired,
-}
+// Filter.propTypes = {
+//     onChange: PropTypes.func.isRequired,
+// }

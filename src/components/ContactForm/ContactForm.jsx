@@ -1,7 +1,9 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { ErrorText, SubmitForm, InputBox, Input, InputName, SubmitBtn } from './ContactForms';
+import { addContact } from 'redux/actions';
 
 const initialValues = {
   name: '',
@@ -28,8 +30,13 @@ const FormError = ({ name }) => {
   );
 };
 
-export const ContactForm = ({ onSubmit }) => {
-  
+export const ContactForm = () => {
+  const dispatch = useDispatch();
+  const onSubmit = ({name, number}) => {
+    dispatch(addContact(name, number))
+  }
+
+
   const onSubmitInner = (value, {resetForm}) => { 
     onSubmit(value);
     resetForm();
@@ -63,6 +70,6 @@ export const ContactForm = ({ onSubmit }) => {
   );
 };
 
-ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+// ContactForm.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };
