@@ -5,10 +5,10 @@ const contactsInitialState = [];
 export const contactsReducer = (state = contactsInitialState, action) => {
   switch (action.type) {
       case addContact.type:
-          console.log(state);
       return [...state, action.payload];
     case deleteContact.type:
-      return state.map(item => item.id !== action.payload);
+      console.log(state, action.payload);
+      return state.filter(item => item.id !== action.payload);
     default:
       return state;
   }
