@@ -21,10 +21,8 @@ export const contactSlice = createSlice({
         };
       },
     },
-    deleteContact: {
-      reducer(state, action) {
-        return { list: state.list.filter(item => item.id !== action.payload) };
-      },
+    deleteContact(state, action) {
+      return { list: state.list.filter(item => item.id !== action.payload) };
     },
   },
 });
