@@ -9,7 +9,7 @@ import {
   InputName,
   SubmitBtn,
 } from './ContactForms';
-import { addContact } from 'redux/actions';
+import { addContact } from 'redux/sliceContacts';
 
 const initialValues = {
   name: '',

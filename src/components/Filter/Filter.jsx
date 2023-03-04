@@ -1,6 +1,6 @@
 // import PropTypes from "prop-types";
 import { useDispatch } from 'react-redux';
-import { searchKeyword } from "redux/actions";
+import { searchKeyword } from "../../redux/sliceFilter";
 import { FilterInput, FilterTitle, FilterBox } from './Filter'
 
 
