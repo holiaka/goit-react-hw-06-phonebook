@@ -1,8 +1,14 @@
-// import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { ErrorText, SubmitForm, InputBox, Input, InputName, SubmitBtn } from './ContactForms';
+import {
+  ErrorText,
+  SubmitForm,
+  InputBox,
+  Input,
+  InputName,
+  SubmitBtn,
+} from './ContactForms';
 import { addContact } from 'redux/actions';
 
 const initialValues = {
@@ -32,22 +38,23 @@ const FormError = ({ name }) => {
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const oldContacts = useSelector(state => state.contactsReducer);
 
-  const onSubmit = ({name, number}) => {
+  const oldContacts = useSelector(state => state.contacts.list);
+
+  const onSubmit = ({ name, number }) => {
     if (!oldContacts.map(item => item.name).includes(name)) {
-      dispatch(addContact(name, number))
+      dispatch(addContact(name, number));
     } else {
       alert("You have already added this person's data to Contact list!!!");
       return;
     }
-  }
+  };
 
-  const onSubmitInner = (value, {resetForm}) => { 
+  const onSubmitInner = (value, { resetForm }) => {
     onSubmit(value);
     resetForm();
   };
-  
+
   return (
     <Formik
       initialValues={initialValues}
@@ -56,12 +63,12 @@ export const ContactForm = () => {
     >
       <SubmitForm>
         <InputName>Name: </InputName>
-        <InputBox>          
+        <InputBox>
           <Input type="text" name="name" required></Input>
           <FormError name="name" />
         </InputBox>
         <InputName>Number: </InputName>
-        <InputBox>          
+        <InputBox>
           <Input
             type="tel"
             name="number"
@@ -75,7 +82,3 @@ export const ContactForm = () => {
     </Formik>
   );
 };
-
-// ContactForm.propTypes = {
-//   onSubmit: PropTypes.func.isRequired,
-// };

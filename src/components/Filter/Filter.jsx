@@ -1,5 +1,6 @@
 // import PropTypes from "prop-types";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { searchKeyword } from "redux/actions";
 import { FilterInput, FilterTitle, FilterBox } from './Filter'
 
 
@@ -8,7 +9,7 @@ export const Filter = () => {
     
 
     const onChange = (evt) => {
-
+        dispatch(searchKeyword(evt.target.value));
     }
 
     return (

@@ -7,7 +7,7 @@ import { Wrapper } from './ContactList';
 
 export const ContactList = () => {
     return (<Wrapper>
-        {useSelector(state => state.contactsReducer).map(({ id, name, number }) => (            
+        {useSelector(state => state.contacts.list).map(({ id, name, number }) => (            
             <ContactListItem key={id} id={id} name={name} number={number}></ContactListItem>           
         ))}
     </Wrapper>);
