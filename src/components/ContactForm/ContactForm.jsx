@@ -42,11 +42,12 @@ export const ContactForm = () => {
   const oldContacts = useSelector(state => state.contacts.list);
 
   const onSubmit = ({ name, number }) => {
-    if (!oldContacts.map(item => item.name).includes(name)) {
-      dispatch(addContact(name, number));
-    } else {
+    const findContact = oldContacts.find(item => item.name === name);
+
+    if (findContact) {
       alert("You have already added this person's data to Contact list!!!");
-      return;
+    } else {
+      dispatch(addContact(name, number));
     }
   };
 

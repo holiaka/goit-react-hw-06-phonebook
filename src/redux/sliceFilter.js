@@ -8,7 +8,7 @@ export const filterSlice = createSlice({
 
   reducers: {
     searchKeyword(state, action) {
-      state = action.payload;
+      return action.payload;
     },
   },
 });

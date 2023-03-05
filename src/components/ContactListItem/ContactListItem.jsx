@@ -1,24 +1,24 @@
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/sliceContacts';
 import { DeleteButton, Item } from './ContactListItem';
 
-export const ContactListItem = ({ id, name, number }) => {  
+export const ContactListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
-  const findElement = useSelector(state => state.filter);
 
-  return (    
-    <>
-      {name.toLowerCase().includes(findElement.toLowerCase())&&<Item>
+  return (
+    <Item>
       <p>
         {name}: <span>{number}</span>
       </p>
-      <DeleteButton type="button" id={id} onClick={() => dispatch(deleteContact(id))}>
+      <DeleteButton
+        type="button"
+        id={id}
+        onClick={() => dispatch(deleteContact(id))}
+      >
         Delete
       </DeleteButton>
-    </Item>}
-    </>
-    
+    </Item>
   );
 };
 

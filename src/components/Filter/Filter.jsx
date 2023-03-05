@@ -1,12 +1,10 @@
-// import PropTypes from "prop-types";
 import { useDispatch } from 'react-redux';
 import { searchKeyword } from "../../redux/sliceFilter";
 import { FilterInput, FilterTitle, FilterBox } from './Filter'
 
 
 export const Filter = () => {
-    const dispatch = useDispatch();
-    
+    const dispatch = useDispatch();    
 
     const onChange = (evt) => {
         dispatch(searchKeyword(evt.target.value));
@@ -20,6 +18,3 @@ export const Filter = () => {
     );
 }
 
-// Filter.propTypes = {
-//     onChange: PropTypes.func.isRequired,
-// }
